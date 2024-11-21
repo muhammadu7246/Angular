@@ -1,0 +1,17 @@
+<p>about works!</p>
+
+<!-- Event Binding -->
+<form (ngSubmit)="updateMessage()">
+    <input type="text" [(ngModel)]="name" name="name" #txtName="ngModel" placeholder="name" /><br><br>
+    <input type="text" [(ngModel)]="email" name="email" #txtEmail="ngModel" placeholder="email" /><br><br>
+    <input type="password" [(ngModel)]="password" name="password" #txtPassword="ngModel" placeholder="pass" /><br><br>
+    
+    <button type="submit" [disabled]="!txtName.valid || !txtEmail.valid || !txtPassword.valid">Submit</button>
+</form>
+
+<br />
+<p>Two-Way Data Binding: {{ message }}</p>
+
+<p>Entered Name: {{ name }}</p>
+<p>Entered Email: {{ email }}</p>
+<p>Entered Password: {{ password }}</p>

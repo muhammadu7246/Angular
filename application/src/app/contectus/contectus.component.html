@@ -1,0 +1,46 @@
+<p>Contact Us works!</p>
+
+<div class="container">
+  <h2>Data Entry Form</h2>
+
+  <!-- Form with ngForm binding -->
+  <form #dataForm="ngForm" (ngSubmit)="onSubmit(dataForm)">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" class="form-control" ngModel required>
+    </div>
+
+    <div class="form-group">
+      <label for="age">Age</label>
+      <input type="number" id="age" name="age" class="form-control" ngModel required>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" class="form-control" ngModel required>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+
+  <!-- Data Table to display form entries -->
+  <div *ngIf="formData.length > 0">
+    <h3>Data Table</h3>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Email</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of formData">
+          <td>{{ data.name }}</td>
+          <td>{{ data.age }}</td>
+          <td>{{ data.email }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
